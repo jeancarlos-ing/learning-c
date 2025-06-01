@@ -1,35 +1,23 @@
 /*
 
-Hello, World!
+Hello, World! Example
 
-Introduction
+Introduction:
+-------------
+The C programming language is a general-purpose language that is close to how computers work.
+C is widely used and is the foundation for many applications, including Windows, Python, and Git.
 
-The C programming language is a general purpose programming language, which relates closely to the way machines work. Understanding how computer memory works is an important aspect of the C programming language. Although C can be considered as "hard to learn", C is in fact a very simple language, with very powerful capabilities.
+C is a compiled language. You must use a compiler (like GCC or Visual Studio) to convert your code
+into an executable file.
 
-C is a very common language, and it is the language of many applications such as Windows, the Python interpreter, Git, and many many more.
+About this program:
+-------------------
+- Every C program can use libraries, which provide useful functions.
+- The 'printf' function, which prints text to the screen, is defined in the 'stdio.h' header file.
+- The main function is where every C program starts executing.
+- Returning 0 from main means the program ran successfully.
 
-C is a compiled language - which means that in order to run it, the compiler (for example, GCC or Visual Studio) must take the code that we wrote, process it, and then create an executable file. This file can then be executed, and will do what we intended for the program to do.
-
-Our first program
-
-Every C program uses libraries, which give the ability to execute necesary functions. For example, the most basic function called 'printf', which prints to the screen, is defined in the 'stdio.h' header file.
-
-To add the ability to run the 'printf' command to our program, we must add the following include directive to our first line to code:
-
-#include <stdio.h>
-
-The second part of the code is the actual code which we are going to write. The first code which will run will always reside in the 'main' function.
-
-int main() {
-    ... our code goes here
-}
-
-The 'int' keyword indicates that the function 'main' will return and integer - a simple number. The wich will be returned by the function indicates whether the program that we wrote worked correctly. If we want to say that our code was run successfully, we will ruturn the number 0. A number greater than 0 will mean that the program than then wrote failed.
-
-Notice that every statement in C must end with a semicolon, so that compiler knows that a new statement has started.
-
-Last but not least, we will need to call the function printf to print our sentence.
-
+This program prints "Hello, World!" to the screen.
 */
 
 #include <stdio.h>
@@ -39,6 +27,6 @@ int main(void)
     // Print "Hello, World!" to the screen
     printf("Hello, World!\n");
 
-    // Return 0 to indicate that program ended successfully
+    // Return 0 to indicate successful execution
     return 0;
 }

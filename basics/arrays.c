@@ -1,31 +1,23 @@
 /*
+    Arrays in C
 
-Arrays
+    Overview:
+    ---------
+    Arrays are special variables that can hold multiple values of the same type, organized by index.
+    Arrays in C are zero-based, meaning the first element is at index 0.
 
-Arrays are special variables which can hold more than one value under the same variable name, organised with an index. Arrays are defined using a very straightforward syntax:
+    Declaration:
+    ------------
+        int numbers[10]; // Declares an array of 10 integers
 
-Defined array of 10 integers
-int numbers[10];
+    Accessing Elements:
+    -------------------
+        numbers[0] = 10; // Assigns 10 to the first element
+        printf("%d", numbers[0]); // Prints the first element
 
-Accessing a number from the array is done using the same syntax. Notice that arrays in C are zero-based, which means that if we defined an array of size 10, then the array cells 0 through 9 (inclusive) are defined, numbers[10] is not an actual value.
-
-int numbers[10]
-
-Populate the array
-
-numbers[0] = 10;
-numbers[1] = 20;
-numbers[2] = 30;
-numbers[3] = 40;
-numbers[4] = 50;
-numbers[5] = 60;
-numbers[6] = 70;
-
-print the 7th number from the array, which has an index of 6
-printf("The 7th number in the array is %d", numbers[6]);
-
-Arrays can only have one type of variable, because they are implemented as a sequence of values in the computer's memory. Because of that, accessing a specific array cell is very efficient.
-
+    Note:
+    -----
+    Arrays can only store one type of variable. Accessing a specific element is very efficient.
 */
 
 #include <stdio.h>
@@ -33,12 +25,18 @@ Arrays can only have one type of variable, because they are implemented as a seq
 int main()
 {
     int average;
-    int grades[3];
+    int grades[3]; // Array to store 3 grades
+
+    // Assign values to the grades array
     grades[0] = 80;
+    grades[1] = 85;
     grades[2] = 90;
 
+    // Calculate the average of the 3 grades
     average = (grades[0] + grades[1] + grades[2]) / 3;
-    printf("The average of the 3 grades is: %d", average);
+
+    // Print the result
+    printf("The average of the 3 grades is: %d\n", average);
 
     return 0;
 }
