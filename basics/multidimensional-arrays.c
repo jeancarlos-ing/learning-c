@@ -8,9 +8,6 @@
 
     Declaration:
     ------------
-        type name[size1][size2]...[sizeN];
-
-    Example:
         int a[3][4]; // 3 rows, 4 columns
 
     Initialization:

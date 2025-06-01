@@ -8,7 +8,7 @@
     Syntax:
     -------
         return_type function_name(parameter_list) {
-            .. function body
+            // function body
         }
 
     Example:
@@ -22,7 +22,12 @@
 
 #include <stdio.h>
 
-/* Function declaration */
+/*
+    print_big function:
+    -------------------
+    - Receives an integer 'number'.
+    - Prints "<number> is big" if the number is greater than 10.
+*/
 void print_big(int number);
 
 int main()
@@ -30,7 +35,7 @@ int main()
     int array[] = {1, 11, 2, 22, 3, 33};
     int i;
 
-    // Call print_big for each element in the array
+    // Loop through the array and call print_big for each element
     for (i = 0; i < 6; i++)
     {
         print_big(array[i]);
@@ -38,7 +43,6 @@ int main()
     return 0;
 }
 
-/* Function definition: prints if a number is big (>10) */
 void print_big(int number)
 {
     if (number > 10)

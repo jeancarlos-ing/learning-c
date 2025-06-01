@@ -8,7 +8,7 @@
     Syntax:
     -------
         for (initialization; condition; increment) {
-            .. code to repeat
+            // code to repeat
         }
 
     Example:
@@ -27,12 +27,13 @@ int main()
     int factorial = 1;
     int i;
 
-    // Calculate the factorial of 10 (10!)
+    // Calculate the factorial of 10 (10! = 1*2*3*...*10)
     for (i = 0; i < 10; i++)
     {
-        factorial *= array[i];
+        factorial *= array[i]; // Multiply each element to the running product
     }
 
+    // Print the result
     printf("10! is %d.\n", factorial);
 
     return 0;

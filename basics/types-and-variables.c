@@ -30,8 +30,8 @@ int main()
 {
     int a = 3;         // Integer variable
     float b = 4.5;     // Float variable
-    double c = 5.25;   // Double variable
-    float sum = a + b + c; // Sum of the variables
+    double c = 5.25;   // Double variable (more precision than float)
+    float sum = a + b + c; // Sum of the variables (implicit conversion to float)
 
     printf("The sum of a, b, and c is %f.\n", sum);
     return 0;

@@ -3,8 +3,8 @@
 
     Overview:
     ---------
-    Arrays are special variables that can hold multiple values of the same type, organized by index.
-    Arrays in C are zero-based, meaning the first element is at index 0.
+    Arrays are variables that can store multiple values of the same type, using an index to access each value.
+    In C, array indices start at 0.
 
     Declaration:
     ------------
@@ -24,13 +24,13 @@
 
 int main()
 {
-    int average;
     int grades[3]; // Array to store 3 grades
+    int average;
 
     // Assign values to the grades array
-    grades[0] = 80;
-    grades[1] = 85;
-    grades[2] = 90;
+    grades[0] = 80; // First grade
+    grades[1] = 85; // Second grade
+    grades[2] = 90; // Third grade
 
     // Calculate the average of the 3 grades
     average = (grades[0] + grades[1] + grades[2]) / 3;
