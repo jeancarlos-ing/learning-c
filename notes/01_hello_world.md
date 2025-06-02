@@ -2,8 +2,6 @@
 
 C is a foundational programming language that gives you direct control over memory and hardware. While it was considered high-level in the 1970s compared to assembly, today C is seen as low-level because it exposes the inner workings of the computer.
 
----
-
 ## Why Learn C?
 
 - **Close to the Machine:**  
@@ -15,19 +13,13 @@ C is a foundational programming language that gives you direct control over memo
 - **Influential:**  
   Many modern languages (Go, Rust, Swift, Python, JavaScript, Java, and more) are influenced by C. If you know C, you'll recognize familiar concepts in these languages.
 
----
-
 ## The Main Challenge: Pointers
 
 Pointers are variables that store memory addresses. While the idea is simple, C requires you to use them explicitly, which can feel strange at first. Once you understand pointers, the rest of C becomes much easier.
 
----
-
 ## Summary
 
 Learning C brings you close to the core of how computers work. It's a powerful language that reveals what happens "under the hood" and is a great foundation for any programmer.
-
----
 
 ## Hello, World! Example
 
@@ -42,8 +34,6 @@ int main(void)
     return 0;
 }
 ```
-
----
 
 ## Explanation
 
@@ -68,8 +58,6 @@ int main(void)
 - **`return 0;`:**  
   This signals that the program finished successfully.
 
----
-
 ## How to Compile and Run
 
 On Unix-like systems (Linux, macOS, WSL), compile your program with:
@@ -92,8 +80,6 @@ Hello, World!
 
 Congratulations! You've written and run your first C program.
 
----
-
 ## Compilation Details
 
 Let's talk about how C programs are built and what happens behind the scenes.
@@ -105,8 +91,6 @@ Unlike languages like JavaScript or Python, where code is often run directly or 
 > **Note:** Many languages have both interpreted and compiled aspects. For example, Python and Java also compile code to an intermediate form (bytecode), but C typically compiles directly to machine code. There are even C interpreters, but compiling is the standard approach.
 
 The **C compiler** is the tool that performs this compilation. A common compiler is `gcc`, which is available on most Unix-like systems and can be run from the terminal or through an IDE.
-
----
 
 ## Compiling with gcc
 
@@ -141,15 +125,11 @@ However, macOS includes a `gcc` command that actually uses Clang behind the scen
 gcc hello.c -o hello
 ```
 
-still works for most basic purposes.
-
-If you want the official GCC compiler, you can install it using Homebrew:
+Still works for most basic purposes.If you want the official GCC compiler, you can install it using Homebrew:
 
 ```sh
 brew install gcc
 ```
-
----
 
 ## Building from an IDE
 
@@ -172,13 +152,9 @@ If you're using an **Integrated Development Environment (IDE)**, you usually don
   To install command-line tools, search for:  
   `"Xcode command line tools installation"`
 
----
-
 ### Pro Tip
 
 Even if you're using an IDE, try compiling from the command line at least once. It deepens your understanding of how C programs are built and run — and it's a key part of programming history!
-
----
 
 ## C Versions: A Historical Overview
 
@@ -206,8 +182,6 @@ The C programming language has evolved significantly over the years, with variou
 
 - **C23:**  
   The most recent specification of the C language.
-
----
 
 ### Using a Specific C Standard
 
