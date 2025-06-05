@@ -2,7 +2,7 @@
 
 Functions are essential in C for organizing code, avoiding repetition, and making programs easier to read and maintain. This guide explains functions with clear explanations, diagrams, tables, and practical advice.
 
-## 🧩 What is a Function?
+## What is a Function?
 
 A **function** is a reusable block of code that performs a specific task.  
 You can "call" a function whenever you need its task done.
@@ -10,7 +10,7 @@ You can "call" a function whenever you need its task done.
 **Analogy:**  
 Think of a function as a kitchen appliance (like a blender). You give it ingredients (arguments), it does its job, and gives you a result (return value).
 
-## 📝 Function Definition and Return Types
+## Function Definition and Return Types
 
 A function definition specifies:
 
@@ -23,25 +23,69 @@ A function definition specifies:
 ```c
 #include <stdio.h>
 
-int plus_one(int n) { // returns int, takes int n
+int plus_one(int n)  // The "definition"
+{
     return n + 1;
-}
-
-int main(void) {
-    int i = 10, j;
-    j = plus_one(i);
-    printf("i + 1 is %d\n", j);
 }
 ```
 
-| Part                | Example             | Meaning                                  |
+| Part                | Example            | Meaning                                  |
 |---------------------|--------------------|------------------------------------------|
 | Return type         | `int`              | Function returns an int                  |
 | Function name       | `plus_one`         | Name of the function                     |
 | Parameter list      | `(int n)`          | Takes one int parameter                  |
 | Return statement    | `return n + 1;`    | Gives back a value to the caller         |
 
-## 🔄 Passing by Value
+### Calling a Function
+
+You can call a function from another function (like `main`). The return value can be stored in a variable.
+
+```c
+int main(void)
+{
+    int i = 10, j;
+    j = plus_one(i);  // The "call"
+    printf("i + 1 is %d\n", j);
+}
+```
+
+### Diagram: Function Call Flow
+
+```c
+[main] --calls--> [plus_one]
+   |                  |
+   |                  v
+   |           [return n + 1]
+   |                  |
+   v                  v
+[main] <--- result ---+
+```
+
+> **Tip:** You must define a function before you use it, or declare a prototype (see below).
+
+## The `void` Keyword
+
+- `void` as a parameter list means the function takes **no arguments**.
+- `void` as a return type means the function returns **no value**.
+
+**Example:**
+
+```c
+#include <stdio.h>
+
+// This function takes no arguments and returns no value:
+void hello(void)
+{
+    printf("Hello, world!\n");
+}
+
+int main(void)
+{
+    hello();  // Prints "Hello, world!"
+}
+```
+
+## Passing by Value
 
 In C, **arguments are always passed by value**.  
 This means the function receives a copy of the argument, not the original variable.
@@ -49,18 +93,28 @@ This means the function receives a copy of the argument, not the original variab
 **Example:**
 
 ```c
-void increment(int a) {
+#include <stdio.h>
+
+void increment(int a)
+{
     a++;
 }
 
-int main(void) {
+int main(void)
+{
     int i = 10;
     increment(i);
-    printf("i == %d\n", i); // Prints 10, not 11!
+    printf("i == %d\n", i);  // Prints 10, not 11!
 }
 ```
 
-**Diagram:**
+**Why does this print 10?**
+
+- The value of `i` (10) is copied into `a`.
+- `a` is incremented to 11, but `i` in `main` is unchanged.
+- When the function ends, `a` is discarded.
+
+### Diagram: Passing by Value
 
 ```c
 [main] i = 10
@@ -75,27 +129,9 @@ int main(void) {
 [main] i = 10 (unchanged)
 ```
 
-**Tip:**  
+> **Tip:** To modify the original variable, you must use pointers (see the pointers guide).
 
-To modify the original variable, you must use pointers (see the pointers guide).
-
-## 🚫 Functions with No Arguments or No Return Value
-
-- Use `void` to indicate a function takes no arguments or returns no value.
-
-**Example:**
-
-```c
-void hello(void) { // No arguments, no return value
-    printf("Hello, world!\n");
-}
-
-int main(void) {
-    hello();
-}
-```
-
-## 📢 Function Prototypes
+## Function Prototypes
 
 A **function prototype** tells the compiler about a function’s name, return type, and parameters before its actual definition.  
 This allows you to call functions before they are defined in the code.
@@ -105,14 +141,17 @@ This allows you to call functions before they are defined in the code.
 ```c
 #include <stdio.h>
 
-int foo(void); // Prototype
+int foo(void);  // This is the prototype!
 
-int main(void) {
-    int i = foo();
-    printf("%d\n", i);
+int main(void)
+{
+    int i;
+    i = foo();
+    printf("%d\n", i);  // 3490
 }
 
-int foo(void) { // Definition
+int foo(void)  // This is the definition, just like the prototype!
+{
     return 3490;
 }
 ```
@@ -122,19 +161,44 @@ int foo(void) { // Definition
 | Prototype      | `int foo(void);`| Declares function before use             |
 | Definition     | `int foo(void)` | Actual code for the function             |
 
-**Note:**  
+> **Tip:** If you call a function without a prototype or definition, you'll get a compiler error in modern C.
 
-- If you call a function without a prototype or definition, you’ll get a compiler error in modern C.
+### Why do we need prototypes?
+
+- The compiler needs to know the function's signature before it is called.
+- Prototypes enable type checking for arguments and return values.
 - Standard library functions (like `printf`) are declared in header files (e.g., `#include <stdio.h>`).
 
-## ⚠️ Empty Parameter Lists
+## Empty Parameter Lists
 
-- Always use `void` in the parameter list to indicate a function takes no arguments.
-  - `void foo(void);` // Correct
-  - `void foo();`     // Not recommended for prototypes
+You might see these from time to time in older code, but you shouldn’t ever code one up in new code.  
+**Always use `void` to indicate that a function takes no parameters.**
 
-**Why?**  
-Leaving out `void` disables type checking for parameters, which can lead to bugs.
+### Function Definition
+
+```c
+void foo()  // Should really have a `void` in there
+{
+    printf("Hello, world!\n");
+}
+```
+
+While the spec says this is as-if you’d indicated `void`, the `void` type is there for a reason. **Use it.**
+
+### Function Prototype
+
+There is a significant difference between using `void` and not in a prototype:
+
+```c
+void foo();
+void foo(void);  // Not the same!
+```
+
+- `void foo();` — Tells the compiler nothing about the parameters (turns off type checking).
+- `void foo(void);` — Tells the compiler this function takes **no arguments** (enables type checking).
+
+> **Recommendation:**  
+> With a prototype, **always use `void`** when you have an empty parameter list.
 
 ## 📋 Summary Table
 
@@ -159,7 +223,7 @@ Leaving out `void` disables type checking for parameters, which can lead to bugs
 [main] <--- result ---+
 ```
 
-## 🌈 Conclusions and Tips
+## 🌈 Tips and Recommendations
 
 - **Functions help organize and reuse code.**
 - **Always declare argument and return types.**
