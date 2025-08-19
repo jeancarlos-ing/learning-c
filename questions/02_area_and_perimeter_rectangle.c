@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Write a program to compute the perimeter and area of a rectangle.
+
 int main()
 {
     int height = 8;

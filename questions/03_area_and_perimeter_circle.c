@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Write a program to compute the perimeter and area of a circle.
+
 int main()
 {
     int radius = 8;
