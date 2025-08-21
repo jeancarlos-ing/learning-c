@@ -1,5 +1,7 @@
 #include<stdio.h>
 
+// Write a program that accepts two numbers from the user and calculate the product of the two numbers.
+
 int main(){
 int a, b, mult;
 printf("\nEnter the first number: ");
