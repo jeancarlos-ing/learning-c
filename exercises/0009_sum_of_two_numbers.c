@@ -1,8 +1,9 @@
-#include<stdio.h>
+#include <stdio.h>
 
 // Write a program to find the sum of two numbers.
 
-int main() {
+int main()
+{
 	int a, b, sum;
 	a = 1;
 	b = 2;

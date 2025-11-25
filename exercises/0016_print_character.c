@@ -1,10 +1,11 @@
-#include<stdio.h>
+#include <stdio.h>
 
 // Write a program:
 // If you enter a character M
 // Output must be: ch = M.
 
-int main() {
+int main()
+{
 	char M;
 	printf("Enter any character: ");
 	scanf("%c", &M);
